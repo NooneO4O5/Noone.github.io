@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>عنوان موضوع اول</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;0,700;1,500&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html">اسم من</a>
+  <a class="nav-link" href="index.html">خانه</a>
+  <a class="nav-link active" href="works.html">نمونه‌کارها</a>
+</nav>
+
+<div class="wrap">
+
+  <a class="back-link" href="works.html">→ برگشت به نمونه‌کارها</a>
+
+  <div class="topic-hero">
+    <img src="covers/topic-1.jpg" alt="عنوان موضوع اول">
+  </div>
+
+  <div class="topic-body">
+    <h1>عنوان موضوع اول</h1>
+    <p>
+      اینجا توضیح کامل این موضوع رو بنویس — چی هست، چیکار کردی، چرا مهمه.
+      هر چقدر لازم داری می‌تونی چند پاراگراف بنویسی.
+    </p>
+
+    <a class="btn primary" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID" target="_blank" rel="noopener">
+      دانلود فایل اصلی
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>
