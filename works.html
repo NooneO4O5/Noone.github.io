@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Pre-Show</title>
+<title>نمونه‌کارها</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;0,700;1,500&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,106 +21,62 @@
   <header>
     <p class="kicker">پروژه‌های شخصی</p>
     <h1>نمونه‌کارهای من</h1>
-    <p>روی هر پوستر کلیک کن تا پیش‌نمایش پخش بشه. برای فایل اصلی و کامل، دکمه‌ی دانلود به فضای ابری وصل می‌شه.</p>
+    <p>روی هر باکس کلیک کن تا بری به صفحه‌ی کامل همون موضوع.</p>
   </header>
 
-  <div class="grid" id="grid"></div>
+  <div class="topic-grid">
+
+    <!--
+      هر باکس = یه <a> که به صفحه‌ی خودش لینک می‌ده.
+      برای هرکدوم:
+      - href رو به اسم فایل صفحه‌ی همون موضوع تغییر بده (مثلاً topic-1.html)
+      - داخل <img> مسیر عکس کاور واقعی رو بذار (و alt رو هم بنویس)
+      - وقتی عکس واقعی گذاشتی، خط cover-fallback زیرش دیگه لازم نیست ولی موندنش ضرری نداره (فقط تا قبل از لود شدن عکس دیده میشه)
+      - title و tag رو با اسم/برچسب واقعی عوض کن
+    -->
+
+    <a class="topic-card" href="topic-1.html" style="--tint:#3a2f22">
+      <div class="cover-fallback"></div>
+      <img class="cover" src="covers/topic-1.jpg" alt="عنوان موضوع اول">
+      <div class="label">
+        <span class="title">عنوان موضوع اول</span>
+        <span class="tag">برچسب کوتاه</span>
+      </div>
+    </a>
+
+    <a class="topic-card" href="topic-2.html" style="--tint:#26313a">
+      <div class="cover-fallback"></div>
+      <img class="cover" src="covers/topic-2.jpg" alt="عنوان موضوع دوم">
+      <div class="label">
+        <span class="title">عنوان موضوع دوم</span>
+        <span class="tag">برچسب کوتاه</span>
+      </div>
+    </a>
+
+    <a class="topic-card" href="topic-3.html" style="--tint:#33272f">
+      <div class="cover-fallback"></div>
+      <img class="cover" src="covers/topic-3.jpg" alt="عنوان موضوع سوم">
+      <div class="label">
+        <span class="title">عنوان موضوع سوم</span>
+        <span class="tag">برچسب کوتاه</span>
+      </div>
+    </a>
+
+    <a class="topic-card" href="topic-4.html" style="--tint:#2a3327">
+      <div class="cover-fallback"></div>
+      <img class="cover" src="covers/topic-4.jpg" alt="عنوان موضوع چهارم">
+      <div class="label">
+        <span class="title">عنوان موضوع چهارم</span>
+        <span class="tag">برچسب کوتاه</span>
+      </div>
+    </a>
+
+  </div>
 
   <footer class="note">
-    این فقط یه نمونه‌ی کوچیکه — پیش‌نمایش‌ها واقعی نیستن.
-    هر آیتم توی <code>items</code> یه <code>preview</code> و یه <code>download</code> داره که باید با فایل‌های خودت جایگزین کنی.
+    برای اضافه کردن یه باکس جدید، کل بلوک <code>&lt;a class="topic-card"&gt;...&lt;/a&gt;</code> رو کپی کن و مقادیرش رو عوض کن.
   </footer>
 </div>
 
-<div class="modal" id="modal">
-  <div class="modal-box">
-    <div class="stage">
-      <button class="close-btn" id="closeBtn" aria-label="بستن">✕</button>
-      <canvas id="stageCanvas"></canvas>
-      <div class="stage-label" id="stageLabel">در حال پخش پیش‌نمایش…</div>
-    </div>
-    <div class="modal-info">
-      <h2 id="modalTitle"></h2>
-      <p id="modalDesc"></p>
-      <div class="modal-actions">
-        <a class="btn primary" id="downloadLink" href="#" target="_blank" rel="noopener">دانلود فایل اصلی</a>
-        <button class="btn" id="closeBtn2">بستن</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  const items = [
-    { title: "موشن گرافیک — معرفی برند", tag: "۰۱:۴۰", tint: "#3a2f22", desc: "پیش‌نمایش فشرده روی سایت پخش می‌شه؛ فایل اصلی با کیفیت کامل از فضای ابری قابل دانلوده.", download: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" },
-    { title: "کلیپ عروسی — تیزر", tag: "۰۲:۱۵", tint: "#26313a", desc: "نمونه‌ی کوتاه از کار نهایی. لینک دانلود رو با آدرس فایل خودت جایگزین کن.", download: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" },
-    { title: "ریلز تبلیغاتی", tag: "۰۰:۴۵", tint: "#33272f", desc: "برای فایل‌های چند گیگ، همیشه لینک مستقیم دانلود از فضای ابری رو بذار، نه خود گیت‌هاب.", download: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_3" },
-    { title: "مستند کوتاه", tag: "۰۸:۳۰", tint: "#2a3327", desc: "می‌تونی این آیتم رو کپی کنی و برای هر نمونه‌کار جدید تغییرش بدی.", download: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_4" }
-  ];
-
-  const grid = document.getElementById('grid');
-  items.forEach((item, i) => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.tabIndex = 0;
-    card.style.setProperty('--tint', item.tint);
-    card.innerHTML = `
-      <div class="play-badge"><svg viewBox="0 0 12 14"><path d="M0 0 12 7 0 14Z"/></svg></div>
-      <div class="poster">
-        <div>
-          <span class="title">${item.title}</span>
-          <span class="tag">${item.tag}</span>
-        </div>
-      </div>`;
-    const open = () => openModal(i);
-    card.addEventListener('click', open);
-    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
-    grid.appendChild(card);
-  });
-
-  const modal = document.getElementById('modal');
-  const canvas = document.getElementById('stageCanvas');
-  const ctx = canvas.getContext('2d');
-  let raf = null, t = 0;
-
-  function drawFrame() {
-    const w = canvas.width = canvas.clientWidth * devicePixelRatio;
-    const h = canvas.height = canvas.clientHeight * devicePixelRatio;
-    t += 0.01;
-    ctx.fillStyle = '#0c0d10';
-    ctx.fillRect(0, 0, w, h);
-    for (let i = 0; i < 4; i++) {
-      const r = (Math.sin(t + i) * 0.5 + 0.5) * (Math.min(w, h) * 0.28) + Math.min(w,h) * 0.08;
-      ctx.beginPath();
-      ctx.arc(w/2 + Math.cos(t*0.6 + i*1.4) * w*0.12, h/2 + Math.sin(t*0.5 + i*1.1) * h*0.12, r, 0, Math.PI*2);
-      ctx.strokeStyle = `rgba(217,164,65,${0.14 - i*0.02})`;
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-    }
-    raf = requestAnimationFrame(drawFrame);
-  }
-
-  function openModal(i) {
-    const item = items[i];
-    document.getElementById('modalTitle').textContent = item.title;
-    document.getElementById('modalDesc').textContent = item.desc;
-    document.getElementById('downloadLink').href = item.download;
-    modal.classList.add('open');
-    if (raf) cancelAnimationFrame(raf);
-    drawFrame();
-  }
-
-  function closeModal() {
-    modal.classList.remove('open');
-    if (raf) cancelAnimationFrame(raf);
-  }
-
-  document.getElementById('closeBtn').addEventListener('click', closeModal);
-  document.getElementById('closeBtn2').addEventListener('click', closeModal);
-  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-</script>
-
 </body>
 </html>
-
